@@ -1,6 +1,8 @@
+import 'package:courseapp/arguments/checkout_argument.dart';
 import 'package:courseapp/constants.dart';
 import 'package:courseapp/model/section.dart';
 import 'package:courseapp/screens/details/widget/favourite_option.dart';
+import 'package:courseapp/util/route_names.dart';
 import 'package:courseapp/util/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -300,7 +302,12 @@ class CourseDetails extends StatelessWidget {
                             width: 10,
                           ),
                           ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                    context, RouteNames.checkout,
+                                    arguments: CheckoutArgument(
+                                        [course], course.price));
+                              },
                               style: ElevatedButton.styleFrom(
                                   primary: kPrimaryColor),
                               child: const Text(

@@ -112,9 +112,9 @@ class MyCourseList extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: ShoppingCartOption(),
+      floatingActionButton: const ShoppingCartOption(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomOption(selectedIndex: 2),
+      bottomNavigationBar: const BottomOption(selectedIndex: 2),
     );
   }
 
