@@ -4,7 +4,7 @@ import 'package:courseapp/model/course_category.dart';
 import 'package:courseapp/notifier/course_Category_change_notifier.dart';
 import 'package:courseapp/screens/home/widget/course_item.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:path/path.dart' as Path;
+// import 'package:path/path.dart' as Path;
 import 'package:provider/provider.dart';
 
 class CourseList extends StatelessWidget {
@@ -16,15 +16,15 @@ class CourseList extends StatelessWidget {
       crossAxisCount: 2,
       shrinkWrap: true,
       physics: const ScrollPhysics(),
-      children: getCourseList().map((course) {
+      children: getCourseList(context).map((course) {
         return CourseItem(course: course);
       }).toList(),
     );
   }
 
-  List<Course> getCourseList() {
+  List<Course> getCourseList(BuildContext context) {
     var category =
-        Provider.of<CourseCategoryChangeNotifier>(this.context).category;
+        Provider.of<CourseCategoryChangeNotifier>(context).category;
 
     if (category == CourseCategory.all) {
       return CourseDataProvider.courseList;
