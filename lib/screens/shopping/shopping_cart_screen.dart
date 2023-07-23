@@ -1,6 +1,8 @@
+import 'package:courseapp/arguments/checkout_argument.dart';
 import 'package:courseapp/constants.dart';
 import 'package:courseapp/data%20provider/shopping_cart_data_provider.dart';
 import 'package:courseapp/model/course.dart';
+import 'package:courseapp/util/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -116,7 +118,10 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
             width: double.infinity,
             margin: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, RouteNames.checkout,
+                      arguments: CheckoutArgument(cartCourseList, totalAmount));
+                },
                 style: ElevatedButton.styleFrom(
                     primary: kPrimaryColor,
                     padding: EdgeInsets.zero,

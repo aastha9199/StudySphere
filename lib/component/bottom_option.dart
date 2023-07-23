@@ -1,4 +1,5 @@
 import 'package:courseapp/constants.dart';
+import 'package:courseapp/util/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -18,7 +19,9 @@ class BottomOption extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
-              onTap: (() {}),
+              onTap: () {
+                openScreen(context, 1);
+              },
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -43,7 +46,9 @@ class BottomOption extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: (() {}),
+              onTap: () {
+                openScreen(context, 2);
+              },
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -53,7 +58,7 @@ class BottomOption extends StatelessWidget {
                       Icons.play_circle_outline,
                       color: getSelectedColor(2),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
@@ -68,7 +73,9 @@ class BottomOption extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: (() {}),
+              onTap: () {
+                openScreen(context, 3);
+              },
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -78,7 +85,7 @@ class BottomOption extends StatelessWidget {
                       Icons.favorite_border,
                       color: getSelectedColor(3),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
@@ -93,7 +100,9 @@ class BottomOption extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: (() {}),
+              onTap: () {
+                openScreen(context, 4);
+              },
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -103,7 +112,7 @@ class BottomOption extends StatelessWidget {
                       Icons.people,
                       color: getSelectedColor(4),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
@@ -127,5 +136,19 @@ class BottomOption extends StatelessWidget {
     return (selectedIndex == optionIndex)
         ? kPrimaryColor
         : Colors.grey.shade800;
+  }
+
+  void openScreen(BuildContext context, int selectedOptionNo) {
+    String routeName = RouteNames.courseHome;
+    switch (selectedOptionNo) {
+      case 2:
+        routeName = RouteNames.myCourseList;
+        break;
+      case 3:
+        routeName = RouteNames.wishlist;
+        break;
+    }
+
+    Navigator.pushReplacementNamed(context, routeName);
   }
 }
