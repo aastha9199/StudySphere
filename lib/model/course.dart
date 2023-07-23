@@ -39,10 +39,15 @@ class Course {
   }
 
   double get rate => _rate;
+  CourseCategory get courseCategory => _courseCategory;
+  double get price => _price;
   String get createdDate => _createdDate;
   String get createdBy => _createdBy;
   String get description => _description;
   String get thumbnailUrl => _thumbnailUrl;
   String get title => _title;
   String get id => _id;
+  String get duration => _duration;
+  int get lessonNo => _lessonNo;
+  List<Section> get sections => _sections;
 }

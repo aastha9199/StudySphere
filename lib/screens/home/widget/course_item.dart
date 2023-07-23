@@ -1,4 +1,6 @@
+import 'package:courseapp/arguments/course_argument.dart';
 import 'package:courseapp/constants.dart';
+import 'package:courseapp/util/route_names.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -23,7 +25,10 @@ class CourseItem extends StatelessWidget {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: InkWell(
-            onTap: (() {}),
+            onTap: () {
+              Navigator.pushNamed(context, RouteNames.courseDetails,
+                  arguments: CourseArgument(course));
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
